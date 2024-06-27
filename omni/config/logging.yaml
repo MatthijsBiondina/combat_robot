@@ -1,0 +1,3 @@
+file_logging: false
+level: 'DEBUG'
+format: '%(asctime)s - %(module)s - ln%(lineno)s - %(funcName)s - %(levelname)s: %(message)s'
