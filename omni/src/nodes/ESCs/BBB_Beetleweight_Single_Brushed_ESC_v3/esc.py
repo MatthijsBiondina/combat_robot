@@ -1,6 +1,6 @@
 import logging
 
-from src.nodes.ESCs.esc import ESC
+from src.nodes.ESCs.bbb_beetleweight_single_brushed_esc_v3 import ESC
 
 logger = logging.getLogger(__name__)
 

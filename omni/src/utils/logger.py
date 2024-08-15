@@ -9,7 +9,7 @@ import logging
 import os
 
 
-def initialize_logger():
+def get_logger():
     base_dir = Path(__file__).resolve()
     while not base_dir.name == "src":
         base_dir = base_dir.parent
@@ -22,6 +22,8 @@ def initialize_logger():
     basename = os.path.basename(sys.argv[0]).replace(".py", "")
     log_filename = f"{int(time()) - 1719520335}_{basename}_{os.getpid()}.log"
 
+    logger = logging.getLogger(basename)
+
     handlers = [logging.StreamHandler()]
     if config["file_logging"]:
         handlers.append(logging.FileHandler(base_dir / "logs" / log_filename))
@@ -32,3 +34,7 @@ def initialize_logger():
         format=config["format"],
         handlers=handlers,
     )
+
+    logger.setLevel(eval(f"logging.{config['level']}"))
+
+    return logger
