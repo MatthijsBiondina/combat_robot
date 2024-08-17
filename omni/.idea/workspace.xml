@@ -7,6 +7,8 @@
     <list default="true" id="733caadb-6039-4166-aabc-3650670bda63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_writer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,22 +223,12 @@
       <workItem from="1723717041203" duration="1000" />
       <workItem from="1723744091312" duration="10362000" />
       <workItem from="1723788242792" duration="3690000" />
+      <workItem from="1723895402712" duration="5987000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/nodes/controller/xbox360/xbox360_plotter.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/omni$xbox360_reader.coverage" NAME="xbox360_reader Coverage Results" MODIFIED="1723753247243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/nodes/controller/xbox360" />
@@ -245,6 +237,6 @@
     <SUITE FILE_PATH="coverage/omni$writer.coverage" NAME="writer Coverage Results" MODIFIED="1720187362311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/cyclone" />
     <SUITE FILE_PATH="coverage/omni$reader.coverage" NAME="reader Coverage Results" MODIFIED="1720188064259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/cyclone" />
     <SUITE FILE_PATH="coverage/omni$xbox360_writer__1_.coverage" NAME="xbox360_writer (1) Coverage Results" MODIFIED="1723751145756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/nodes/controller/xbox360" />
-    <SUITE FILE_PATH="coverage/omni$xbox360_plotter.coverage" NAME="xbox360_plotter Coverage Results" MODIFIED="1723791351904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/nodes/controller/xbox360" />
+    <SUITE FILE_PATH="coverage/omni$xbox360_plotter.coverage" NAME="xbox360_plotter Coverage Results" MODIFIED="1723901696868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/nodes/controller/xbox360" />
   </component>
 </project>
