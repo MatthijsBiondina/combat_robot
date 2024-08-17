@@ -143,12 +143,12 @@ def pyout(*message, color="PINK"):
                 if count == 0:
                     # Found the matching closing parenthesis
                     arg_str = line[
-                        start_index + 6 : start_index + i
-                    ]  # Exclude "pyout(" and ")"
+                              start_index + 6: start_index + i
+                              ]  # Exclude "pyout(" and ")"
                     break
         else:
             # Didn't find a matching closing parenthesis (unlikely unless the line is malformed)
-            arg_str = line[start_index + 6 :]
+            arg_str = line[start_index + 6:]
 
     trace = traceback.extract_stack()[-2]
     fname = trace.filename.replace(os.path.abspath(os.curdir), "...")
@@ -196,7 +196,7 @@ def prng(decimals=4):
     for ii in range(1, decimals + 1):
         pseudo_random_state = (7 * pseudo_random_state) % 101
 
-        ou += (pseudo_random_state % 10) * 10**-ii
+        ou += (pseudo_random_state % 10) * 10 ** -ii
     ou = str(ou)[: decimals + 2]
 
     return float(ou)
@@ -258,3 +258,7 @@ def prog():
     # Clear the cache and delete the frame to help with garbage collection
     linecache.clearcache()
     del caller_frame
+
+
+def cursor_up(number_of_lines: int = 1):
+    print(f"\033[{number_of_lines}A", end="\r")

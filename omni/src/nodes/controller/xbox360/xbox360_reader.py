@@ -27,10 +27,17 @@ class Xbox360Reader(Reader):
             topic_name, data_type, qos, callback=None, rate_hz=rate_hz
         )
         self.suppress_warnings = suppress_warnings
+        self.e_stop: bool = False
+        self.rate_hz: int = rate_hz
 
     @property
     def state(self):
-        xbox360pod_list: List[Xbox360POD] = self()
+        t0 = time.time()
+        xbox360pod_list: List[Xbox360POD] = []
+        while time.time() < t0 + 1 / self.rate_hz:
+            xbox360pod_list: List[Xbox360POD] = self()
+            if len(xbox360pod_list) > 0:
+                break
 
         if len(xbox360pod_list) == 0:  # If no data, return None
             if not self.suppress_warnings:
@@ -40,11 +47,12 @@ class Xbox360Reader(Reader):
 
         # If timeout exceeded, robot should go idle -> return None
         if xbox360pod.timestamp + self.TIMEOUT < time.time():
+            self.e_stop = True
             if not self.suppress_warnings:
                 logger.warn(
                     f"Het duurt te lang. Laatste bericht: "
                     f"{time.time() - xbox360pod.timestamp:.0f} seconden geleden."
                 )
             return None
-
+        self.e_stop = False
         return xbox360pod
