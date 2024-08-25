@@ -13,6 +13,9 @@ from src.config import (
     WHEEL_RADIUS,
     CHASSIS_RADIUS,
     MAX_RPS,
+    INVERTED,
+    MOTOR0_ANGLE_INVERTED,
+    MOTOR2_ANGLE_INVERTED,
 )
 from src.cyclone.defaults import QOS
 from src.cyclone.writer import Writer
@@ -35,11 +38,11 @@ class DriveController(Writer):
     """
 
     def __init__(
-            self,
-            topic_name: AnyStr = "drive_controller",
-            data_type: CYCLONE_MESSAGE_TYPE = DriveControlPOD,
-            qos: Qos = QOS,
-            rate_hz: int = 50,
+        self,
+        topic_name: AnyStr = "drive_controller",
+        data_type: CYCLONE_MESSAGE_TYPE = DriveControlPOD,
+        qos: Qos = QOS,
+        rate_hz: int = 50,
     ):
         """
         Initializes the DriveController object.
@@ -59,10 +62,15 @@ class DriveController(Writer):
         self.controller = Xbox360Reader()
         self.controller_state: Optional[Xbox360POD] = None
 
-        self.R_motor0_body = self.__init_rotation_matrix(MOTOR0_ANGLE)
+        self.R_motor0_body = self.__init_rotation_matrix(
+            MOTOR0_ANGLE if not INVERTED else MOTOR0_ANGLE_INVERTED
+        )
         self.R_motor1_body = self.__init_rotation_matrix(MOTOR1_ANGLE)
-        self.R_motor2_body = self.__init_rotation_matrix(MOTOR2_ANGLE)
+        self.R_motor2_body = self.__init_rotation_matrix(
+            MOTOR2_ANGLE if not INVERTED else MOTOR2_ANGLE_INVERTED
+        )
 
+        time.sleep(1)
         self.__run()
 
     def __run(self):
@@ -82,6 +90,7 @@ class DriveController(Writer):
                     esc0, esc1, esc2 = 0.0, 0.0, 0.0
                 else:
                     dx, dy, d_omega = self.__get_desired_velocities_from_controller()
+
                     (
                         rps0_unnormalized,
                         rps1_unnormalized,
@@ -107,9 +116,9 @@ class DriveController(Writer):
                     esc2=esc2,
                 )
                 self.publish(motor_control_message)
-
             except Exception as e:
                 logger.exception(f"Er is een onverwachte fout opgetreden: {e}")
+            self.sleep()
 
     def __get_desired_velocities_from_controller(self) -> Tuple[float, float, float]:
         """
@@ -130,7 +139,7 @@ class DriveController(Writer):
         return d_x, d_y, d_omega
 
     def __compute_motor_speeds_rps(
-            self, dx: float, dy: float, d_omega: float
+        self, dx: float, dy: float, d_omega: float
     ) -> Tuple[float, float, float]:
         """
         Computes the unnormalized motor speeds in rounds per second (RPS) for each motor

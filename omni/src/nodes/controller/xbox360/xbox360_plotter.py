@@ -1,4 +1,5 @@
 import os
+import time
 from copy import copy
 
 from src.cyclone.cycloneddsnode import CycloneDDSNode
@@ -64,6 +65,8 @@ class Xbox360Plotter(CycloneDDSNode):
         self.__run()
 
     def __run(self):
+        time.sleep(5)
+        os.system("clear")
         while True:
             try:
                 state = self.controller.state

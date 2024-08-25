@@ -20,12 +20,12 @@ class Xbox360Writer(Writer):
     RATE_HZ = 50  # We chose the same rate as the ESC protocol
 
     def __init__(
-            self,
-            topic_name: AnyStr = "controller",
-            data_type: CYCLONE_MESSAGE_TYPE = Xbox360POD,
-            qos: Qos = QOS,
-            controller_number: int = 0,
-            rate_hz: int = RATE_HZ,
+        self,
+        topic_name: AnyStr = "controller",
+        data_type: CYCLONE_MESSAGE_TYPE = Xbox360POD,
+        qos: Qos = QOS,
+        controller_number: int = 0,
+        rate_hz: int = RATE_HZ,
     ):
         super().__init__(topic_name, data_type, qos, rate_hz)
         self.controller_number = controller_number
@@ -33,7 +33,7 @@ class Xbox360Writer(Writer):
         self.__run()
 
     def __init_controller(
-            self, controller_number: int, suppress_log: bool = False
+        self, controller_number: int, suppress_log: bool = False
     ) -> JoystickType:
         pygame.joystick.init()
 
@@ -92,8 +92,8 @@ class Xbox360Writer(Writer):
             except pygame.error as e:
                 error_message = e.args[0]
                 if (
-                        error_message == "Joystick not initialized"
-                        or error_message == "joystick system not initialized"
+                    error_message == "Joystick not initialized"
+                    or error_message == "joystick system not initialized"
                 ):
                     logger.warn("Controller niet verbonden!")
                     try:

@@ -16,12 +16,12 @@ class Xbox360Reader(Reader):
     TIMEOUT = 1.0
 
     def __init__(
-            self,
-            topic_name: AnyStr = "controller",
-            data_type: CYCLONE_MESSAGE_TYPE = Xbox360POD,
-            qos: Qos = QOS,
-            rate_hz: int = 50,
-            suppress_warnings: bool = False,
+        self,
+        topic_name: AnyStr = "controller",
+        data_type: CYCLONE_MESSAGE_TYPE = Xbox360POD,
+        qos: Qos = QOS,
+        rate_hz: int = 50,
+        suppress_warnings: bool = False,
     ):
         super(Xbox360Reader, self).__init__(
             topic_name, data_type, qos, callback=None, rate_hz=rate_hz

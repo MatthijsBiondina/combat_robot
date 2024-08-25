@@ -1,8 +1,0 @@
-Omniwheel:
-https://www.ebay.co.uk/itm/195579062898?chn=ps&_ul=GB&mkevt=1&mkcid=28
-
-IMU:
-https://www.antratek.be/9dof-imu-breakout-icm-20948-qwiic?gad_source=1
-
-raspberry:
-https://www.kiwi-electronics.com/en/raspberry-pi-pico-wh-10940?src=raspberrypi
